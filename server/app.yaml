@@ -1,0 +1,19 @@
+runtime: nodejs20
+instance_class: F1
+env: standard
+
+env_variables:
+  GOOGLE_APPLICATION_CREDENTIALS: project2-454000-76d0db1374a0.json
+  GEMINI_API_KEY: AIzaSyADAYKKVgacV1ZKS859JP0QWmIVnwDDnLQ
+  PORT: 8080
+
+handlers:
+  - url: /assets
+    static_dir: client-dist/assets
+
+  - url: /
+    static_files: client-dist/index.html
+    upload: client-dist/index.html
+
+  - url: /.*
+    script: auto
